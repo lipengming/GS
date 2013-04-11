@@ -1,0 +1,35 @@
+<div class="box">
+
+  <div class="box todos">
+    <h2 class="box">商品列表</h2>
+    <ul>
+
+       <%for(var i=0; i< goods.length;i++){ 
+          var g =goods[i];
+        %>
+         <li <%=g.isok ? 'class="finished"' : '' %>>
+            商品编号：<%= g._id %> &nbsp;
+            商品名：<%= g.name %> &nbsp;
+            商品数量：<%= g.count %> &nbsp;
+            商品状态：<%= g.isok %> &nbsp;&nbsp;
+
+            <a href="/goods/<%= g._id%>/goedit">修改</a>&nbsp;||&nbsp;
+           <a href="/goods/<%= g._id%>/delete" onclick="return confirm('删除以后不能恢复的，确定？')">删除</a>
+        </li>        
+        <% } %>
+    </ul>
+  </div>
+
+  <div class="box post">
+    <h2>新增一件商品</h2>
+    <form action="/goods/new" method="post" id="post_new">
+      名称：<p><input type="text" name="goodsname" class="long_txt" /></p>
+      数量：<p><input type="text" name="goodscount" class="long_txt" /></p>
+      是否发售: <p><input type="radio" name="isok" value="1" />是
+      <input type="radio" name="isok" value="2" />否</p>
+      <p><input type="submit" class="submit" value="添加" /></p>
+    </form>
+  </div>
+
+</div>
+

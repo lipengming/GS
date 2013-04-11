@@ -1,0 +1,15 @@
+<div class="box post">
+    <h2>修改</h2>
+    <form action="/goods/<%=goods._id%>/edit" method="post" id="post_new">
+      名称：<p><input type="text" name="goodsname" value="<%=goods.name%>" class="long_txt" /></p>
+      数量：<p><input type="text" name="goodscount" value="<%=goods.count%>" class="long_txt" /></p>
+      是否发售: <p><%if(goods.isok){%>
+       <input type="radio" name="isok" value="1" checked="checked"/>是
+       <input type="radio" name="isok" value="2" />否
+      <%}else{%>
+       <input type="radio" name="isok" value="1" />是
+       <input type="radio" name="isok" value="2" checked="checked"/>否</p>
+       <%}%>
+      <p><input type="submit" class="submit" value="修改" /></p>
+    </form>
+  </div>
